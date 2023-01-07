@@ -1,0 +1,44 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "mongoose": "^6.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.6.1",
+    "react-router-dom": "^6.6.1",
+    "scheduler": "^0.23.0"
+  },
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmed-V-Mousa/ProShop.git"
+  },
+  "author": "Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ahmed-V-Mousa/ProShop/issues"
+  },
+  "homepage": "https://github.com/Ahmed-V-Mousa/ProShop#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
+  }
+}
