@@ -19,7 +19,7 @@ import { listProductDetails } from '../actions/productActions';
 
 const ProductScreen = ({ history, match }) => {
   let navigate = useNavigate();
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -90,6 +90,7 @@ const ProductScreen = ({ history, match }) => {
                       <Col>Qty</Col>
                       <Col>
                         <Form.Control
+                        className="selectForm"
                           as='select'
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
