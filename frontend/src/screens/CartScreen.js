@@ -24,7 +24,7 @@ const CartScreen = ({ history }) => {
   console.log(qty);
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector(state => state.cart);
   const { cartItems } = cart;
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const CartScreen = ({ history }) => {
     }
   }, [dispatch, productId, qty]);
 
-  const removeFromCartHandler = (id) => {
+  const removeFromCartHandler = id => {
     dispatch(removeFromCart(id));
   };
 
@@ -47,11 +47,11 @@ const CartScreen = ({ history }) => {
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <Message>
-            Your Cart is Empty <Link to='/'>Go back</Link>
+            Your cart is empty <Link to='/'>Go Back</Link>
           </Message>
         ) : (
           <ListGroup variant='flush'>
-            {cartItems.map((item) => (
+            {cartItems.map(item => (
               <ListGroup.Item key={item.product}>
                 <Row>
                   <Col md={2}>
@@ -63,16 +63,15 @@ const CartScreen = ({ history }) => {
                   <Col md={2}>${item.price}</Col>
                   <Col md={2}>
                     <Form.Control
-                      className='selectForm'
                       as='select'
                       value={item.qty}
-                      onChange={(e) =>
+                      onChange={e =>
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
                         )
                       }
                     >
-                      {[...Array(item.countInStock).keys()].map((x) => (
+                      {[...Array(item.countInStock).keys()].map(x => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
                         </option>
@@ -99,7 +98,8 @@ const CartScreen = ({ history }) => {
           <ListGroup variant='flush'>
             <ListGroup.Item>
               <h2>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                Subtotal (
+                {cartItems.reduce((acc, item) => acc + Number(item.qty), 0)})
                 items
               </h2>
               $
@@ -123,4 +123,5 @@ const CartScreen = ({ history }) => {
     </Row>
   );
 };
+
 export default CartScreen;
