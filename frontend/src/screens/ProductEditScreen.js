@@ -69,7 +69,11 @@ const ProductEditScreen = () => {
         },
       };
 
-      const { data } = await axios.post('/api/upload', formData, config);
+      const { data } = await axios.post(
+        'https://proshop-backend-production.up.railway.app/api/upload',
+        formData,
+        config
+      );
 
       setImage(data);
       setUploading(false);

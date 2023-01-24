@@ -23,6 +23,8 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json());
 
+app.use(cors({ origin: 'https://pro-shop-rho.vercel.app' }));
+
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
