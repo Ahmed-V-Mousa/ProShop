@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "proxy": "http://127.0.0.1:5000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +18,11 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-paypal-button-v2": "^2.6.3",
+    "react-router": "^6.6.1",
+    "react-router-dom": "^6.6.1",
+    "scheduler": "^0.23.0"
   },
   "scripts": {
     "start": "react-scripts start",
