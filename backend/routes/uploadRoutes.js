@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import multer from 'multer';
+
 const router = express.Router();
 
 const storage = multer.diskStorage({
@@ -16,14 +17,15 @@ const storage = multer.diskStorage({
 });
 
 function checkFileType(file, cb) {
-  const filetypes = /jpg|jpeg|png/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
+  console.log('1');
+  const fileTypes = /jpg|jpeg|png/;
+  const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
+  const mimeType = fileTypes.test(file.mimetype);
 
-  if (extname && mimetype) {
+  if (extName && mimeType) {
     return cb(null, true);
   } else {
-    cb('Images only!');
+    return cb('images only!');
   }
 }
 
@@ -34,9 +36,11 @@ const upload = multer({
   },
 });
 
-router.post('/', upload.single('image'), (req, res) => {
+router.route('/').post(upload.single('image'), (req, res) => {
   console.log(req.file.path);
-  res.send(`https://proshop-backend-production.up.railway.app/${req.file.path}`);
+  res.send(
+    `https://proshop-backend-production.up.railway.app/${req.file.path}`
+  );
 });
 
 export default router;
